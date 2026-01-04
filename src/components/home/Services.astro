@@ -1,0 +1,76 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import Card from '../ui/Card.astro';
+import AnimateOnScroll from '../ui/AnimateOnScroll.astro';
+
+const services = [
+  {
+    title: 'Safety Consulting',
+    description: 'Comprehensive risk assessments, safety audits, and customized safety programs tailored to your industry and workplace needs.',
+    icon: 'clipboard-check',
+    href: '/services/consulting',
+  },
+  {
+    title: 'OSHA Training',
+    description: 'Industry-approved OSHA 10 & 30-hour courses, fall protection, HAZWOPER, and more. Available in multiple languages.',
+    icon: 'academic-cap',
+    href: '/services/training/osha',
+  },
+  {
+    title: 'Food Safety Training',
+    description: 'ServSafe Manager and Alcohol certification courses in English and Spanish. Partnership with MANKA for quality training.',
+    icon: 'shield-check',
+    href: '/services/training/food-safety',
+  },
+  {
+    title: 'Safety Equipment',
+    description: 'Premium NIOSH and ANSI certified PPE including fall protection, respiratory, eye protection, and high visibility apparel.',
+    icon: 'cube',
+    href: '/products',
+  },
+];
+
+const icons: Record<string, string> = {
+  'clipboard-check': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />`,
+  'academic-cap': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />`,
+  'shield-check': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,
+  'cube': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />`,
+};
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <SectionHeading
+      title="Our Services"
+      subtitle="Comprehensive safety solutions to protect your workforce and ensure compliance with industry regulations."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service, index) => (
+        <AnimateOnScroll animation="fade-in-up" delay={index * 100}>
+          <a href={service.href} class="group block h-full">
+            <Card hover class="p-6 h-full">
+            <div class="w-12 h-12 bg-brand-yellow/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-yellow/20 transition-colors">
+              <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <Fragment set:html={icons[service.icon]} />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-brand-charcoal mb-2 group-hover:text-brand-yellow transition-colors">
+              {service.title}
+            </h3>
+            <p class="text-brand-slate text-sm">
+              {service.description}
+            </p>
+            <div class="mt-4 text-brand-yellow font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+              Learn More
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </Card>
+          </a>
+        </AnimateOnScroll>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'outline-light';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  type?: 'button' | 'submit';
+  external?: boolean;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  type = 'button',
+  external = false,
+} = Astro.props;
+
+const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300';
+
+const variantStyles = {
+  primary: 'bg-brand-yellow hover:bg-brand-gold text-brand-charcoal hover:scale-105',
+  secondary: 'bg-brand-charcoal hover:bg-brand-slate text-white hover:scale-105',
+  outline: 'border-2 border-brand-yellow text-brand-charcoal hover:bg-brand-yellow hover:scale-105',
+  'outline-light': 'border-2 border-brand-yellow text-white hover:bg-brand-yellow hover:text-brand-charcoal hover:scale-105',
+};
+
+const sizeStyles = {
+  sm: 'py-2 px-4 text-sm',
+  md: 'py-3 px-6 text-base',
+  lg: 'py-4 px-8 text-lg',
+};
+
+const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+
+const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+{href ? (
+  <a href={href} class={classes} {...externalProps}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes}>
+    <slot />
+  </button>
+)}

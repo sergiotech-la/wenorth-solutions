@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import ProductDetailClient from '../../components/products/ProductDetailClient';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map((product) => ({
+    params: { handle: product.data.handle },
+    props: { product: product.data },
+  }));
+}
+
+const { product } = Astro.props;
+
+// Strip HTML from description for meta
+function stripHtml(html: string | null): string {
+  if (!html) return '';
+  return html.replace(/<[^>]*>/g, '').slice(0, 160);
+}
+
+const metaDescription = stripHtml(product.description) || `Shop ${product.title} from WeNorth Solutions. Quality safety equipment from Boston Safety Equipment.`;
+---
+
+<BaseLayout
+  title={`${product.title} | WeNorth Solutions`}
+  description={metaDescription}
+>
+  <section class="py-16 bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4">
+      <!-- Breadcrumb -->
+      <nav class="mb-8 text-sm animate-fade-in" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 text-brand-slate">
+          <li>
+            <a href="/" class="hover:text-brand-yellow transition-colors">Home</a>
+          </li>
+          <li>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </li>
+          <li>
+            <a href="/products" class="hover:text-brand-yellow transition-colors">Products</a>
+          </li>
+          <li>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </li>
+          <li class="text-brand-charcoal font-medium truncate max-w-xs">{product.title}</li>
+        </ol>
+      </nav>
+
+      <div class="animate-fade-in-up animate-delay-100">
+        <ProductDetailClient product={product} client:load />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

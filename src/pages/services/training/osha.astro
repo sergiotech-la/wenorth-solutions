@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SectionHeading from '../../../components/ui/SectionHeading.astro';
+import Button from '../../../components/ui/Button.astro';
+import AnimateOnScroll from '../../../components/ui/AnimateOnScroll.astro';
+
+const courses = [
+  {
+    title: 'OSHA 30-Hour',
+    description: 'Comprehensive safety training for supervisors and workers with safety responsibilities.',
+    duration: '30 hours',
+    audience: 'Supervisors, Safety Personnel',
+    image: '/images/OSHA 30.png',
+  },
+  {
+    title: 'OSHA 10-Hour',
+    description: 'Essential workplace safety awareness training for entry-level workers.',
+    duration: '10 hours',
+    audience: 'All Workers',
+    image: '/images/OSHA 10.png',
+  },
+  {
+    title: 'Fall Protection',
+    description: 'Specialized training on fall hazard recognition and prevention measures.',
+    duration: '4-8 hours',
+    audience: 'Construction, Maintenance',
+    image: '/images/Fall protection.png',
+  },
+  {
+    title: 'HAZWOPER',
+    description: 'Hazardous waste operations and emergency response training.',
+    duration: '24-40 hours',
+    audience: 'Hazmat Workers',
+    image: '/images/Hazwoper.png',
+  },
+  {
+    title: 'Lead Paint Safety',
+    description: 'Training on lead safety practices for renovation and painting work.',
+    duration: '8 hours',
+    audience: 'Painters, Renovators',
+    image: '/images/EPA Lead.png',
+  },
+  {
+    title: 'Forklift Certification',
+    description: 'Powered industrial truck operator training and certification.',
+    duration: '4-8 hours',
+    audience: 'Warehouse, Manufacturing',
+    image: '/images/Forklift.png',
+  },
+];
+
+const features = [
+  {
+    title: 'Multilingual Training',
+    description: 'Available in English, Portuguese, and Spanish to reach your entire workforce.',
+    icon: 'translate',
+  },
+  {
+    title: 'Instant Certificates',
+    description: 'Receive official certification immediately upon successful course completion.',
+    icon: 'document',
+  },
+  {
+    title: 'In-Person Facility',
+    description: 'Dedicated training facility for hands-on learning experience.',
+    icon: 'building',
+  },
+  {
+    title: 'Bulk Discounts',
+    description: 'Special pricing available for large groups and organizations.',
+    icon: 'users',
+  },
+  {
+    title: 'Nationwide Availability',
+    description: 'We can bring training to your location anywhere in the country.',
+    icon: 'location',
+  },
+  {
+    title: 'Partnership with United Safety Net',
+    description: 'Official training partner for comprehensive OSHA education.',
+    icon: 'handshake',
+  },
+];
+
+const icons: Record<string, string> = {
+  translate: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />`,
+  document: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />`,
+  building: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />`,
+  users: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />`,
+  location: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />`,
+  handshake: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />`,
+};
+---
+
+<BaseLayout
+  title="OSHA Training | WeNorth Solutions"
+  description="Industry-approved OSHA certification courses including OSHA 10 & 30-hour, fall protection, HAZWOPER, and more. Available in English, Spanish, and Portuguese."
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-brand-charcoal">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-brand-yellow/20 text-brand-yellow px-4 py-1 rounded-full text-sm font-medium mb-6 animate-fade-in-down">
+          OSHA Training
+        </span>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in-up animate-delay-100">
+          OSHA Certification Courses
+        </h1>
+        <p class="text-xl text-gray-300 mb-4 animate-fade-in-up animate-delay-200">
+          Industry-approved training in partnership with United Safety Net.
+        </p>
+        <p class="text-gray-400 animate-fade-in-up animate-delay-300">
+          Available in English, Spanish, and Portuguese.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <SectionHeading
+        title="Why Choose Our OSHA Training"
+        subtitle="Features that set our training programs apart."
+      />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map((feature, index) => (
+          <AnimateOnScroll animation="fade-in-up" delay={index * 100}>
+            <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow hover-lift h-full">
+              <div class="w-12 h-12 bg-brand-yellow/10 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <Fragment set:html={icons[feature.icon]} />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-brand-charcoal mb-2">{feature.title}</h3>
+              <p class="text-brand-slate text-sm">{feature.description}</p>
+            </div>
+          </AnimateOnScroll>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionHeading
+        title="Available Courses"
+        subtitle="Comprehensive OSHA training programs for all industries."
+      />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {courses.map((course, index) => (
+          <AnimateOnScroll animation="scale-in" delay={index * 75}>
+            <div class="bg-white rounded-xl border border-gray-100 hover:shadow-lg transition-shadow hover-lift h-full overflow-hidden">
+              <div class="aspect-video bg-gray-50 flex items-center justify-center p-4">
+                <img src={course.image} alt={course.title} class="max-h-full max-w-full object-contain" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-brand-charcoal mb-2">{course.title}</h3>
+                <p class="text-brand-slate text-sm mb-4">{course.description}</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="inline-block bg-brand-yellow/10 text-brand-yellow text-xs font-medium px-3 py-1 rounded-full">
+                    {course.duration}
+                  </span>
+                  <span class="inline-block bg-gray-100 text-brand-slate text-xs font-medium px-3 py-1 rounded-full">
+                    {course.audience}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </AnimateOnScroll>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <AnimateOnScroll animation="fade-in-up">
+        <div class="bg-brand-charcoal rounded-2xl p-8 md:p-12">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <span class="inline-block bg-brand-yellow/20 text-brand-yellow px-4 py-1 rounded-full text-sm font-medium mb-4">
+                Our Partner
+              </span>
+              <h2 class="text-3xl font-bold text-white mb-4">United Safety Net</h2>
+              <p class="text-gray-300 mb-6">
+                We've partnered with United Safety Net to bring you OSHA-authorized training programs that meet the highest industry standards. Our partnership ensures your team receives certifications that are recognized and respected nationwide.
+              </p>
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  OSHA-authorized training provider
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Experienced certified instructors
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Updated curriculum and materials
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-xl aspect-video flex items-center justify-center p-8">
+              <img src="/images/united-safety-net.png" alt="United Safety Net" class="max-h-full max-w-full object-contain" />
+            </div>
+          </div>
+        </div>
+      </AnimateOnScroll>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-brand-charcoal">
+    <div class="container mx-auto px-4 text-center">
+      <AnimateOnScroll animation="fade-in-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Get Your Team Certified?
+        </h2>
+        <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          Contact us today to schedule OSHA training for your organization. Bulk discounts available.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/contact" size="lg">
+            Schedule Training
+          </Button>
+          <Button href="/services/training/food-safety" variant="outline-light" size="lg">
+            View Food Safety Training
+          </Button>
+        </div>
+      </AnimateOnScroll>
+    </div>
+  </section>
+</BaseLayout>

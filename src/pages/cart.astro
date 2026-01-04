@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CartPageWrapper from '../components/cart/CartPageWrapper';
+---
+
+<BaseLayout
+  title="Shopping Cart | WeNorth Solutions"
+  description="Review your cart and proceed to checkout."
+>
+  <section class="py-16 bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4">
+      <CartPageWrapper client:load />
+    </div>
+  </section>
+</BaseLayout>

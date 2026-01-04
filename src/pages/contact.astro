@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
+import AnimateOnScroll from '../components/ui/AnimateOnScroll.astro';
+---
+
+<BaseLayout
+  title="Contact Us | WeNorth Solutions"
+  description="Get in touch with WeNorth Solutions for safety consulting, training, and equipment inquiries. Request a free quote today."
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-brand-charcoal">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-brand-yellow/20 text-brand-yellow px-4 py-1 rounded-full text-sm font-medium mb-6 animate-fade-in-down">
+          Contact Us
+        </span>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in-up animate-delay-100">
+          Let's Work Together
+        </h1>
+        <p class="text-xl text-gray-300 animate-fade-in-up animate-delay-200">
+          Have questions about our services? Ready to get started? We're here to help.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <AnimateOnScroll animation="slide-in-left">
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <h2 class="text-2xl font-bold text-brand-charcoal mb-6">Send Us a Message</h2>
+            <ContactForm />
+          </div>
+        </AnimateOnScroll>
+
+        <!-- Contact Info -->
+        <AnimateOnScroll animation="slide-in-right" delay={200}>
+          <div>
+            <h2 class="text-2xl font-bold text-brand-charcoal mb-6">Get in Touch</h2>
+            <p class="text-brand-slate mb-8">
+              We're here to answer any questions you have about our safety services. Reach out and let's start a conversation about how we can help protect your workforce.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-start gap-4 hover-lift p-2 -m-2 rounded-lg">
+                <div class="w-12 h-12 bg-brand-yellow/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-brand-charcoal">Email</h3>
+                  <a href="mailto:contact@wenorthsolutions.com" class="text-brand-slate hover:text-brand-yellow transition-colors">
+                    contact@wenorthsolutions.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 hover-lift p-2 -m-2 rounded-lg">
+                <div class="w-12 h-12 bg-brand-yellow/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-brand-charcoal">Website</h3>
+                  <a href="https://wenorthsolutions.com" class="text-brand-slate hover:text-brand-yellow transition-colors">
+                    wenorthsolutions.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 hover-lift p-2 -m-2 rounded-lg">
+                <div class="w-12 h-12 bg-brand-yellow/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-brand-charcoal">Business Hours</h3>
+                  <p class="text-brand-slate">Monday - Friday: 8am - 6pm EST</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="mt-12 p-6 bg-brand-charcoal/5 rounded-lg">
+              <h3 class="font-semibold text-brand-charcoal mb-4">Quick Links</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="/services" class="text-brand-slate hover:text-brand-yellow transition-colors flex items-center gap-2 group">
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    View All Services
+                  </a>
+                </li>
+                <li>
+                  <a href="/products" class="text-brand-slate hover:text-brand-yellow transition-colors flex items-center gap-2 group">
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    Browse Safety Equipment
+                  </a>
+                </li>
+                <li>
+                  <a href="/about" class="text-brand-slate hover:text-brand-yellow transition-colors flex items-center gap-2 group">
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    Learn About Us
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

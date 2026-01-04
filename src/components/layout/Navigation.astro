@@ -1,0 +1,86 @@
+---
+interface Props {
+  mobile?: boolean;
+}
+
+const { mobile = false } = Astro.props;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  {
+    label: 'Services',
+    href: '/services',
+    submenu: [
+      { label: 'Safety Consulting', href: '/services/consulting' },
+      { label: 'OSHA Training', href: '/services/training/osha' },
+      { label: 'Food Safety Training', href: '/services/training/food-safety' },
+    ],
+  },
+  { label: 'Products', href: '/products' },
+  { label: 'Why Us', href: '/why-us' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+
+const linkClasses = mobile
+  ? 'block py-2 text-brand-charcoal hover:text-brand-yellow transition-colors'
+  : 'text-brand-charcoal hover:text-brand-yellow transition-colors font-medium';
+
+const activeLinkClasses = mobile
+  ? 'block py-2 text-brand-yellow font-semibold'
+  : 'text-brand-yellow font-semibold';
+---
+
+<nav class={mobile ? 'space-y-2' : 'hidden lg:flex items-center gap-8'}>
+  {navItems.map((item) => {
+    const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+
+    return item.submenu ? (
+      <div class={mobile ? '' : 'relative group'}>
+        <a
+          href={item.href}
+          class={isActive ? activeLinkClasses : linkClasses}
+        >
+          {item.label}
+          <svg class="inline-block w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+        {mobile ? (
+          <div class="pl-4 space-y-1 mt-1">
+            {item.submenu.map((subitem) => (
+              <a
+                href={subitem.href}
+                class={currentPath === subitem.href ? 'block py-1 text-brand-yellow' : 'block py-1 text-brand-slate hover:text-brand-yellow transition-colors'}
+              >
+                {subitem.label}
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-48">
+              {item.submenu.map((subitem) => (
+                <a
+                  href={subitem.href}
+                  class="block px-4 py-2 text-brand-charcoal hover:bg-gray-50 hover:text-brand-yellow transition-colors"
+                >
+                  {subitem.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    ) : (
+      <a
+        href={item.href}
+        class={isActive ? activeLinkClasses : linkClasses}
+      >
+        {item.label}
+      </a>
+    );
+  })}
+</nav>

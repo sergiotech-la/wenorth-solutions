@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Button from '../../components/ui/Button.astro';
+import AnimateOnScroll from '../../components/ui/AnimateOnScroll.astro';
+---
+
+<BaseLayout
+  title="Safety Consulting | WeNorth Solutions"
+  description="Comprehensive safety consulting services including risk assessments, safety audits, and customized safety programs for your business."
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-brand-charcoal">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-brand-yellow/20 text-brand-yellow px-4 py-1 rounded-full text-sm font-medium mb-6 animate-fade-in-down">
+          Safety Consulting
+        </span>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in-up animate-delay-100">
+          Expert Safety Consulting Services
+        </h1>
+        <p class="text-xl text-gray-300 animate-fade-in-up animate-delay-200">
+          We're expanding our services to bring you comprehensive safety consulting solutions tailored to your industry needs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-Stage Process -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <SectionHeading
+        title="Our 3-Stage Process"
+        subtitle="A systematic approach to ensuring workplace safety."
+      />
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Stage 1 -->
+        <AnimateOnScroll animation="fade-in-up" delay={0}>
+          <div class="relative h-full">
+            <div class="bg-gray-50 rounded-2xl p-8 h-full hover-lift">
+              <div class="w-12 h-12 bg-brand-yellow text-brand-charcoal rounded-full flex items-center justify-center font-bold text-xl mb-6">
+                1
+              </div>
+              <h3 class="text-xl font-bold text-brand-charcoal mb-4">Risk Assessment</h3>
+              <p class="text-brand-slate">
+                We conduct thorough on-site evaluations to identify potential hazards and safety risks specific to your workplace and industry.
+              </p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-brand-yellow"></div>
+          </div>
+        </AnimateOnScroll>
+
+        <!-- Stage 2 -->
+        <AnimateOnScroll animation="fade-in-up" delay={150}>
+          <div class="relative h-full">
+            <div class="bg-gray-50 rounded-2xl p-8 h-full hover-lift">
+              <div class="w-12 h-12 bg-brand-yellow text-brand-charcoal rounded-full flex items-center justify-center font-bold text-xl mb-6">
+                2
+              </div>
+              <h3 class="text-xl font-bold text-brand-charcoal mb-4">Management Documentation</h3>
+              <p class="text-brand-slate">
+                We develop comprehensive safety documentation, procedures, and policies tailored to your organization's specific needs.
+              </p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-brand-yellow"></div>
+          </div>
+        </AnimateOnScroll>
+
+        <!-- Stage 3 -->
+        <AnimateOnScroll animation="fade-in-up" delay={300}>
+          <div class="h-full">
+            <div class="bg-gray-50 rounded-2xl p-8 h-full hover-lift">
+              <div class="w-12 h-12 bg-brand-yellow text-brand-charcoal rounded-full flex items-center justify-center font-bold text-xl mb-6">
+                3
+              </div>
+              <h3 class="text-xl font-bold text-brand-charcoal mb-4">Safety Audit</h3>
+              <p class="text-brand-slate">
+                Regular audits and inspections to ensure ongoing compliance and identify areas for continuous improvement.
+              </p>
+            </div>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety Plans & Programs -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionHeading
+        title="Safety Plans & Programs"
+        subtitle="Customized safety solutions for your organization."
+      />
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <AnimateOnScroll animation="fade-in-up" delay={0}>
+          <div class="bg-white rounded-2xl p-8 border border-gray-100 hover-lift h-full">
+            <div class="w-12 h-12 bg-brand-yellow/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-charcoal mb-2">Baseline Safety Assessment</h3>
+            <p class="text-brand-slate">
+              A comprehensive evaluation of your current safety practices, identifying gaps and opportunities for improvement.
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="fade-in-up" delay={100}>
+          <div class="bg-white rounded-2xl p-8 border border-gray-100 hover-lift h-full">
+            <div class="w-12 h-12 bg-brand-yellow/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-charcoal mb-2">Site General Safety Plan</h3>
+            <p class="text-brand-slate">
+              Development of site-specific safety plans that address the unique hazards and requirements of your workplace.
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="fade-in-up" delay={200}>
+          <div class="bg-white rounded-2xl p-8 border border-gray-100 hover-lift h-full">
+            <div class="w-12 h-12 bg-brand-yellow/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-charcoal mb-2">Custom Safety Programs</h3>
+            <p class="text-brand-slate">
+              Custom-written safety programs and procedures tailored to your industry, operations, and regulatory requirements.
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="fade-in-up" delay={300}>
+          <div class="bg-white rounded-2xl p-8 border border-gray-100 hover-lift h-full">
+            <div class="w-12 h-12 bg-brand-yellow/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-charcoal mb-2">Site Safety Inspections & Audits</h3>
+            <p class="text-brand-slate">
+              Regular on-site inspections and comprehensive audits to ensure ongoing compliance and safety excellence.
+            </p>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Served -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <SectionHeading
+        title="Industries We Serve"
+        subtitle="Our consulting services span across multiple industries."
+      />
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {['Construction', 'Manufacturing', 'Healthcare', 'Food Service', 'Warehousing', 'Transportation', 'Oil & Gas', 'Retail'].map((industry, index) => (
+          <AnimateOnScroll animation="scale-in" delay={index * 50}>
+            <div class="bg-gray-50 rounded-lg p-6 text-center hover:bg-brand-yellow/10 transition-colors hover-lift">
+              <span class="text-brand-charcoal font-medium">{industry}</span>
+            </div>
+          </AnimateOnScroll>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-brand-charcoal">
+    <div class="container mx-auto px-4 text-center">
+      <AnimateOnScroll animation="fade-in-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Improve Your Safety Program?
+        </h2>
+        <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          Contact us today to schedule a consultation and learn how our safety consulting services can benefit your organization.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/contact" size="lg">
+            Request a Consultation
+          </Button>
+          <Button href="/services" variant="outline-light" size="lg">
+            View All Services
+          </Button>
+        </div>
+      </AnimateOnScroll>
+    </div>
+  </section>
+</BaseLayout>

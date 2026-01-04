@@ -1,0 +1,70 @@
+---
+interface Props {
+  animation?: 'fade-in' | 'fade-in-up' | 'fade-in-down' | 'slide-in-left' | 'slide-in-right' | 'scale-in';
+  delay?: number;
+  threshold?: number;
+  class?: string;
+}
+
+const {
+  animation = 'fade-in-up',
+  delay = 0,
+  threshold = 0.1,
+  class: className = '',
+} = Astro.props;
+---
+
+<div
+  class={`animate-on-scroll ${className}`}
+  data-animation={animation}
+  data-delay={delay}
+  data-threshold={threshold}
+>
+  <slot />
+</div>
+
+<script>
+  const initAnimations = () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const animation = el.dataset.animation || 'fade-in-up';
+            const delay = parseInt(el.dataset.delay || '0');
+
+            setTimeout(() => {
+              el.classList.add(`animate-${animation}`);
+              el.style.opacity = '1';
+            }, delay);
+
+            observer.unobserve(el);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    elements.forEach((el) => {
+      (el as HTMLElement).style.opacity = '0';
+      observer.observe(el);
+    });
+  };
+
+  // Run on initial load
+  initAnimations();
+
+  // Re-run on view transitions (Astro)
+  document.addEventListener('astro:page-load', initAnimations);
+</script>
+
+<style>
+  .animate-on-scroll {
+    opacity: 0;
+  }
+</style>

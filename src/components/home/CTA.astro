@@ -1,0 +1,32 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section class="py-20 bg-brand-charcoal relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23F5A623\" fill-opacity=\"1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        Ready to Prioritize Safety?
+      </h2>
+      <p class="text-lg text-gray-300 mb-8">
+        Let's work together to create a safer workplace. Contact us today for a free consultation and discover how WeNorth Solutions can help protect your team.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="/contact" size="lg">
+          Request a Quote
+        </Button>
+        <Button href="tel:+1-555-123-4567" variant="outline-light" size="lg">
+          Call Us Now
+        </Button>
+      </div>
+      <p class="mt-6 text-gray-400 text-sm">
+        Let's Shine. Together.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import Navigation from './Navigation.astro';
+import MobileMenu from './MobileMenu.tsx';
+import HeaderCart from '../cart/HeaderCart.tsx';
+---
+
+<header class="sticky top-0 z-50 bg-white border-b border-gray-100">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2">
+        <img src="/logo.svg" alt="WeNorth Solutions" class="h-10" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <Navigation />
+
+      <!-- Desktop Cart & CTA -->
+      <div class="hidden lg:flex items-center gap-4">
+        <HeaderCart client:load />
+        <a
+          href="/contact"
+          class="bg-brand-yellow hover:bg-brand-gold text-brand-charcoal font-semibold py-2 px-4 rounded-lg transition-colors"
+        >
+          Get a Quote
+        </a>
+      </div>
+
+      <!-- Mobile Menu -->
+      <MobileMenu client:load />
+    </div>
+  </div>
+</header>

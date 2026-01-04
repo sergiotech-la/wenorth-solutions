@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductGrid from '../../components/products/ProductGrid';
+
+const products = await getCollection('products');
+const categories = [...new Set(products.map(p => p.data.productType))].filter(Boolean).sort();
+
+const serializedProducts = products.map(p => p.data);
+---
+
+<BaseLayout
+  title="Safety Equipment Catalog | WeNorth Solutions"
+  description="Browse our selection of certified NIOSH and ANSI protective equipment including fall protection, head protection, respiratory, eye protection, and high visibility apparel."
+>
+  <section class="py-16 bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4">
+      <div class="mb-8">
+        <span class="inline-block bg-brand-yellow/20 text-brand-yellow px-4 py-1 rounded-full text-sm font-medium mb-4 animate-fade-in-down">
+          Safety Equipment
+        </span>
+        <h1 class="text-4xl font-bold text-brand-charcoal mb-4 animate-fade-in-up animate-delay-100">
+          Safety Equipment Catalog
+        </h1>
+        <p class="text-lg text-brand-slate max-w-3xl animate-fade-in-up animate-delay-200">
+          Browse our selection of certified NIOSH and ANSI protective equipment.
+          All products are available through our partner, Boston Safety Equipment.
+        </p>
+      </div>
+
+      <div class="animate-fade-in-up animate-delay-300">
+        <ProductGrid
+          products={serializedProducts}
+          categories={categories}
+          client:load
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+
+const partners = [
+  {
+    name: 'United Safety Net',
+    description: 'OSHA training partnership for comprehensive workplace safety education.',
+    logo: '/images/united-safety-net.png',
+  },
+  {
+    name: 'MANKA',
+    description: 'Food safety training partnership for ServSafe certification courses.',
+    logo: '/images/manka.png',
+  },
+  {
+    name: 'Boston Safety Equipment',
+    description: 'Premium PPE and safety equipment distribution partner.',
+    logo: '/images/boston-safety.svg',
+  },
+];
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <SectionHeading
+      title="Our Partners"
+      subtitle="We collaborate with industry leaders to bring you the best safety solutions."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {partners.map((partner) => (
+        <div class="bg-white rounded-lg p-8 text-center border border-gray-100 hover:shadow-md transition-shadow">
+          <div class="h-20 flex items-center justify-center mb-4">
+            <img src={partner.logo} alt={partner.name} class="max-w-44 max-h-16 object-contain" />
+          </div>
+          <h3 class="font-semibold text-brand-charcoal mb-2">{partner.name}</h3>
+          <p class="text-sm text-brand-slate">{partner.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
