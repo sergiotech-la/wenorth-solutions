@@ -10,8 +10,12 @@ import AnimateOnScroll from '../components/ui/AnimateOnScroll.astro';
   description="Learn about WeNorth Solutions, our mission, and our commitment to workplace safety through consulting, training, and quality equipment."
 >
   <!-- Hero Section -->
-  <section class="py-20 bg-brand-charcoal">
-    <div class="container mx-auto px-4">
+  <section class="relative py-20 bg-brand-charcoal overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/brochure_images/7.webp" alt="Safety professionals partnership" class="w-full h-full object-cover opacity-20" />
+      <div class="absolute inset-0 bg-brand-charcoal/70"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
       <div class="max-w-3xl">
         <span class="inline-block bg-brand-yellow/20 text-brand-yellow px-4 py-1 rounded-full text-sm font-medium mb-6 animate-fade-in-down">
           About Us

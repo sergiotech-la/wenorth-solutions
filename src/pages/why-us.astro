@@ -10,8 +10,12 @@ import AnimateOnScroll from '../components/ui/AnimateOnScroll.astro';
   description="Discover why businesses trust WeNorth Solutions for their safety consulting, training, and equipment needs."
 >
   <!-- Hero Section -->
-  <section class="py-20 bg-brand-charcoal">
-    <div class="container mx-auto px-4">
+  <section class="relative py-20 bg-brand-charcoal overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/brochure_images/6.webp" alt="Construction workers at sunset" class="w-full h-full object-cover opacity-20" />
+      <div class="absolute inset-0 bg-brand-charcoal/70"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
       <div class="max-w-3xl">
         <span class="inline-block bg-brand-yellow/20 text-brand-yellow px-4 py-1 rounded-full text-sm font-medium mb-6 animate-fade-in-down">
           Why Choose Us
@@ -164,25 +168,25 @@ import AnimateOnScroll from '../components/ui/AnimateOnScroll.astro';
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <AnimateOnScroll animation="fade-in-up" delay={0}>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-bold text-brand-yellow mb-2">500+</div>
+            <div class="text-4xl md:text-5xl font-bold text-brand-yellow mb-2">100+</div>
             <div class="text-brand-slate">Clients Served</div>
           </div>
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in-up" delay={100}>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-bold text-brand-yellow mb-2">10K+</div>
+            <div class="text-4xl md:text-5xl font-bold text-brand-yellow mb-2">1K+</div>
             <div class="text-brand-slate">Workers Trained</div>
           </div>
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in-up" delay={200}>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-bold text-brand-yellow mb-2">15+</div>
+            <div class="text-4xl md:text-5xl font-bold text-brand-yellow mb-2">5+</div>
             <div class="text-brand-slate">Years Experience</div>
           </div>
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in-up" delay={300}>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-bold text-brand-yellow mb-2">98%</div>
+            <div class="text-4xl md:text-5xl font-bold text-brand-yellow mb-2">95%+</div>
             <div class="text-brand-slate">Satisfaction Rate</div>
           </div>
         </AnimateOnScroll>
