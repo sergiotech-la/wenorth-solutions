@@ -17,7 +17,7 @@ const services = [
     ],
     href: '/services/consulting',
     icon: 'clipboard-check',
-    image: '/images/consulting-hero.webp',
+    image: '/images/brochure_images/11.webp',
   },
   {
     title: 'OSHA Training',
@@ -30,7 +30,7 @@ const services = [
     ],
     href: '/services/training/osha',
     icon: 'academic-cap',
-    image: '/images/training.webp',
+    image: '/images/brochure_images/13.webp',
   },
   {
     title: 'Food Safety Training',
@@ -43,7 +43,7 @@ const services = [
     ],
     href: '/services/training/food-safety',
     icon: 'shield-check',
-    image: '/images/training.webp',
+    image: '/images/brochure_images/3.webp',
   },
 ];
 
@@ -163,10 +163,8 @@ const icons: Record<string, string> = {
           </div>
         </AnimateOnScroll>
         <AnimateOnScroll animation="slide-in-right" delay={200}>
-          <div class="bg-gray-200 rounded-2xl aspect-video flex items-center justify-center">
-            <svg class="w-24 h-24 text-brand-yellow/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-            </svg>
+          <div class="rounded-2xl aspect-video overflow-hidden">
+            <img src="/images/brochure_images/4.webp" alt="Personal protective equipment" class="w-full h-full object-cover" />
           </div>
         </AnimateOnScroll>
       </div>
